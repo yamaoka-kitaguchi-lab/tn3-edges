@@ -14,6 +14,6 @@ ncclient    = "*"
 
 [scripts]
 install  = "ansible-galaxy collection install juniper.device"
-dryrun   = "ansible-playbook -vvvv --check site.yml"
+dryrun   = "ansible-playbook -vvvv --check --skip-tags skip_dryrun site.yml"
 addguest = "ansible-playbook -v --tags create_guest site.yml"
 backup   = "ansible-playbook -v --tags backup_config site.yml"

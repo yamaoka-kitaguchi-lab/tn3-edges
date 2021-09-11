@@ -1,0 +1,14 @@
+---
+- name: Enable NETCONF
+  connection: network_cli
+  junos_netconf:
+
+- name: Create pre-snapshots
+  connection: netconf
+  junos_config:
+    backup: yes
+    backup_options:
+      filename: "{{ hostname }}.cfg"
+      dir_path: backup/junos_config.{{ datetime }}
+  tags:
+    - skip_dryrun
