@@ -1,0 +1,7 @@
+---
+- name: Manage Tn3 edges
+  hosts: all
+  gather_facts: no
+
+  roles:
+    - role: juniper

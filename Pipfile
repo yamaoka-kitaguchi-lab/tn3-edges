@@ -1,0 +1,19 @@
+[[source]]
+url        = "https://pypi.org/simple"
+verify_ssl = true
+name       = "pypi"
+
+[packages]
+ansible     = "~=4.1"
+paramiko    = "*"
+ncclient    = "*"
+
+[dev-packages]
+
+[requires]
+
+[scripts]
+install  = "ansible-galaxy collection install juniper.device"
+dryrun   = "ansible-playbook -vvvv --check site.yml"
+addguest = "ansible-playbook -v --tags create_guest site.yml"
+backup   = "ansible-playbook -v --tags backup_config site.yml"
