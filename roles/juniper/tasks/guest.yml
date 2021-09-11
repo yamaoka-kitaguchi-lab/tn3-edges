@@ -1,0 +1,7 @@
+---
+- name: Create guest user
+  junos_user:
+    name: "{{ guest_name }}"
+    role: read-only
+    encrypted-password: "{{ 'guest_password' |  password_hash('sha512') }}"
+    state: present
