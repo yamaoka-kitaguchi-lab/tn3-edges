@@ -1,4 +1,5 @@
 # tn3-edges
+- Enable NETCONF
 - Create guest account
 - Backup current config
 
@@ -15,6 +16,11 @@ Edit targets and check their statuses with:
 ```
 % vim inventories/production/edges
 % deadman inventories/production/edges
+```
+
+Edit the name and password of newly creating guest by:
+```
+% vim inventories/production/group_vars/guest_account.yml
 ```
 
 ### Create guest account
