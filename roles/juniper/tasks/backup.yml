@@ -14,6 +14,6 @@
 - name: Save snapshot as a latest configuration backup
   local_action: 
     module: copy 
-    content: "{{ output.stdout }}"
+    content: "{{ output.stdout[:-10] }}"
     dest: "backup/junos_config.{{ datetime }}/{{ hostname }}.cfg"
 
