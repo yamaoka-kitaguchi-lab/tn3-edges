@@ -1,7 +1,19 @@
 ---
 - name: Create guest user
-  junos_user:
-    name: "{{ guest_name }}"
-    role: read-only
-    encrypted-password: "{{ 'guest_password' |  password_hash('sha512') }}"
-    state: present
+  connection: network_cli
+  cli_command:
+    command: "{{ item }}"
+    check_all: True
+    prompt:
+      - "New password"
+      - "Retype new password"
+    answer:
+      - "{{ guest_password }}"
+      - "{{ guest_password }}"
+  loop:
+    - configure
+    - rollback
+    - "set system login user {{ guest_name }} class read-only authentication plain-text-password"
+    - commit
+    - exit
+
