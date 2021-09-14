@@ -1,5 +1,4 @@
 # tn3-edges
-- Enable NETCONF
 - Create guest account
 - Backup current config
 
